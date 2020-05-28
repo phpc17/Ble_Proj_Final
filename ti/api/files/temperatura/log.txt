@@ -1,0 +1,11 @@
+POST /api/reads/file HTTP/1.1
+Accept:          */*
+Accept-Encoding: gzip, deflate, br
+Connection:      keep-alive
+Content-Length:  58
+Content-Type:    application/x-www-form-urlencoded
+Host:            boot.test
+Postman-Token:   531c7e26-9759-4a82-b045-209bddfe703d
+User-Agent:      PostmanRuntime/7.24.1
+
+sensor_type=ola&value=42&datetime=2020%2F03%2F01%2000%3A31
