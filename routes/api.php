@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-//Route::post('/reads', 'ReadController@store');
+Route::post('/reads', 'ReadController@store');
 Route::put('/reads', 'ReadController@update');
 Route::get('/reads/{id}', 'ReadController@show');
 
