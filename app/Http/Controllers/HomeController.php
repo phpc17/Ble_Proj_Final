@@ -41,7 +41,7 @@ class HomeController extends Controller
                         "mac_address" =>$equipamento->mac_address, 
                         "rssi" => $equipamento->rssi,
                         "luz" => $equipamento->luz,
-                        "hora" => $equipamento->hora,
+                        "time_stamp" => $equipamento->time_stamp,
                         "distancia" => $equipamento->distancia,
                         "nome" => $equipamento->nome,
                         "id_divisao" => $equipamento->id_divisao,

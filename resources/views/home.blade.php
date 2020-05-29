@@ -42,7 +42,7 @@
             <th>MAC Address</th>
             <th>RSSI</th>
             <th>Distância</th>
-            <th>Hora</th>
+            <th>Data e Hora</th>
             <th>Bulb</th>
             <th>Divisao</th>
         </tr>
@@ -53,7 +53,7 @@
         <td>{{ $e->mac_address }}</td>
         <td>{{ $e->rssi }}</td>
         <td>{{ $e->distancia }}</td>
-        <td>{{ $e->hora }}</td>
+        <td>{{ $e->time_stamp }}</td>
         @if($e->luz == 1)
         <td>Ligou</td>
         @else

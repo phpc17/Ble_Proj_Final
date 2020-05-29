@@ -86,16 +86,16 @@ class ReadController extends Controller
     public function store(Request $request)
     {
         $date = date("Y-m-d h:i:s");
-        return DB::table('equipamentos')->insertGetId(
+        return DB::table('equipamentos')->insert(
             [  
-                "mac_address" =>$request['mac_address'], 
-                "rssi" => $request['rssi'],
-                "luz" => $request['luz'],
+                "mac_address" =>$request["mac_address"], 
+                "rssi" => $request["rssi"],
+                "luz" => $request["luz"],
                 "time_stamp" => $date,
-                "distancia" => $request['distancia'],
-                "nome" => $request['nome'],
-                "id_divisao" => $request['id_divisao'],
-                'created_at' => $date,
+                "distancia" => $request["distancia"],
+                "nome" => $request["nome"],
+                "id_divisao" => $request["id_divisao"],
+                "created_at" => $date,
                 "updated_at" => $date
             ]);
     }
