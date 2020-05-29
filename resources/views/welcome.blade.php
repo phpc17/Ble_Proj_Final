@@ -68,17 +68,17 @@
             }
         </style>
     </head>
-    <body class="jumbotron">
-        <div class="flex-center position-ref full-height jumbotron">
+    <body>
+        <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links jumbotron" style="background-color:#0054a5">
+                <div class="top-right links">
                     @auth
-                        <a class="Jumbotron" href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a class="Jumbotron" href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a  class="Jumbotron" href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">Register</a>
                         @endif
                     @endauth
                 </div>
