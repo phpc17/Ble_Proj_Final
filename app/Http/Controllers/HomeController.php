@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 use App\User;
 use Illuminate\Http\Request;
+use DateTime;
 
 class HomeController extends Controller
 {
@@ -28,7 +29,7 @@ class HomeController extends Controller
 
         $users = User::count();
 
-        $equipamentos = DB::table('equipamentos')->get();
+        $equipamentos = DB::table('equipamentos')->orderBy('time_stamp','desc')->paginate(8);
         $divisoes = DB::table('divisoes')->get();
         
         $array = array();

@@ -77,8 +77,8 @@ class ReadController extends Controller
 
     public function show($id)
     {
-        $value =DB::table('reads')->where('id',$id)->pluck('value');
-
+        $value =DB::table('reads')->where('id',1)->pluck('value');
+        
         return  $value[0];
     }
 
@@ -86,18 +86,29 @@ class ReadController extends Controller
     public function store(Request $request)
     {
         $date = date("Y-m-d h:i:s");
-        return DB::table('equipamentos')->insert(
+        if($request!= null){
+        return DB::table('equipamentos')->insertGetId(
             [  
-                "mac_address" =>$request["mac_address"], 
-                "rssi" => $request["rssi"],
-                "luz" => $request["luz"],
+                "mac_address" =>$request->input('mac_address'), 
+                "rssi" => $request->input('rssi'),
+                "luz" => $request->input('luz'),
                 "time_stamp" => $date,
-                "distancia" => $request["distancia"],
-                "nome" => $request["nome"],
-                "id_divisao" => $request["id_divisao"],
+                "distancia" => $request->input('distancia'),
+                "nome" => $request->input('nome'),
+                "id_divisao" => $request->input('id_divisao'),
                 "created_at" => $date,
                 "updated_at" => $date
             ]);
+        }
+    }
+
+    public function updateValue(Request $request, $id)
+    {
+        return DB::table('divisoes')->where('id',$id)->update(
+            [  
+                "valor" =>$request->input('valor'), 
+            ]);
+        
     }
     
     

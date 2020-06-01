@@ -4,7 +4,7 @@
 <!-- Page Heading -->
 
 <head>
-    <meta http-equiv="refresh" content="20">
+    <meta http-equiv="refresh" content="10">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1>
@@ -20,12 +20,21 @@
 
     @foreach($divisoes as $divisao)
     <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card border-left-warning shadow h-100 py-2">
+        @if ($divisao->valor == 1)
+        <div class="card border-left-success shadow h-100 py-2">
+        @else
+        <div class="card border-left-danger shadow h-100 py-2">
+        @endif
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-sucess text-uppercase mb-1">{{ $divisao->nome}}</div>
-                        <!-- <div class="h5 mb-0 font-weight-bold text-gray-800">ºC</div> -->
+                        <div class="text-xs font-weight-bold text-sucess text-uppercase mb-1">
+                        @if ($divisao->valor == 1)
+                        Luz {{ $divisao->nome }} Ligada
+                        @else 
+                        Luz {{ $divisao->nome }} Desligada
+                        @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,7 +43,7 @@
     @endforeach
 
 </div>
-<div><strong>Equipamentos</strong> List</div>
+<div><strong>Tracking</strong> List</div>
 <table id="reads-table" class="table table-responsive-lg" style="width:100%;">
     <thead>
         <tr>
@@ -61,12 +70,20 @@
         @endif
         @foreach($divisoes as $divisao)
         @if($e->id_divisao == $divisao->id)
-        <td>{{$divisao->nome}}</td>
+        @if($e->luz == 1)
+            <td>{{$divisao->nome}}</td>
+        @else
+            <td>Fora das divisões</td>
+        @endif
         @endif
         @endforeach
+
+        
     </tr>
     @endforeach
+    
 </table>
+<div >{{$equipamentos->links()}}</div>
 @endsection
 
 <style type="text/css">
