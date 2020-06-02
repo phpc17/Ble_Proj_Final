@@ -85,7 +85,7 @@ class ReadController extends Controller
 
     public function store(Request $request)
     {
-        $date = date("Y-m-d h:i:s");
+        $date = date("Y-m-d H:i:s");
         if($request!= null){
         return DB::table('equipamentos')->insertGetId(
             [  

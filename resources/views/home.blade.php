@@ -83,7 +83,7 @@
     @endforeach
     
 </table>
-<div >{{$equipamentos->links()}}</div>
+<div style="text-align:center" >{{$equipamentos->links()}}</div>
 @endsection
 
 <style type="text/css">
