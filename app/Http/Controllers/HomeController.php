@@ -24,14 +24,18 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
 
         $users = User::count();
 
-        $equipamentos = DB::table('equipamentos')->orderBy('time_stamp','desc')->paginate(8);
-        $divisoes = DB::table('divisoes')->get();
         
+        $divisoes = DB::table('divisoes')->get();
+        if ($request->has('data')) {
+            $equipamentos = DB::table('equipamentos')->whereDate('time_stamp',$request->data)->orderBy('time_stamp','desc')->paginate(8);
+        }else{
+            $equipamentos = DB::table('equipamentos')->orderBy('time_stamp','desc')->paginate(8);
+        }
         $array = array();
 
         foreach($equipamentos as $equipamento) {
