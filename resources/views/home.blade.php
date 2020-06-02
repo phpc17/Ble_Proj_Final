@@ -102,7 +102,7 @@
     <h2>Não foram encontrados registos</h2>
     @endif
 </div>
-<div style="text-align:center">{{$equipamentos->links()}}</div>
+<div style="text-align:center">{{$equipamentos->withQuery->links()}}</div>
 @endsection
 
 <style type="text/css">
