@@ -22,6 +22,3 @@ Route::post('/reads', 'ReadController@store');
 
 Route::put('/divisoes/{id}', 'ReadController@updateValue');
 
-//Route::put('/reads', 'ReadController@update');
-Route::get('/reads/{id}', 'ReadController@show');
-

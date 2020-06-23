@@ -30,7 +30,7 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="home">
-            <div class="sidebar-brand-text mx-3">Easy Smart Farm</div>
+            <div class="sidebar-brand-text mx-3">Ble Tracker</div>
         </a>
 
         <!-- Divider -->
