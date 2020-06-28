@@ -4,7 +4,7 @@
 <!-- Page Heading -->
 
 <head>
-    <meta http-equiv="refresh" content="10">
+    <meta http-equiv="refresh" content="20">
 </head>
 <h1 class="h3 mb-4 text-gray-800">{{ __('Dashboard') }}</h1>
 
@@ -85,10 +85,12 @@
             @endif
             @foreach($divisoes as $divisao)
             @if($e->id_divisao == $divisao->id)
-            @if($e->luz == 1)
+            @if($e->rssi>-70)
             <td>{{$divisao->nome}}</td>
-            @else
-            <td>Fora das divisões</td>
+            @elseif($divisao->id == 1)
+            <td>Fora do quarto</td>
+            @elseif($divisao->id == 2)
+            <td>Fora da garagem</td>
             @endif
             @endif
             @endforeach
