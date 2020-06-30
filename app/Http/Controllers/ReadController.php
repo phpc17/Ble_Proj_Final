@@ -12,9 +12,9 @@ class ReadController extends Controller
     {
         $date = date("Y-m-d H:i:s");
         if($request!= null){
-        return DB::table('equipamentos')->insertGetId(
+         DB::table('equipamentos')->insertGetId(
             [  
-                "mac_address" =>$request->input('mac_address'), 
+                "mac_address" =>$request['mac_address'], 
                 "rssi" => $request->input('rssi'),
                 "luz" => $request->input('luz'),
                 "time_stamp" => $date,
@@ -24,17 +24,22 @@ class ReadController extends Controller
                 "created_at" => $date,
                 "updated_at" => $date
             ]);
+        
+         DB::table('divisoes')->where('id',$request->input('id_divisao'))->update(
+            [  
+                "valor" => $request->input('luz'), 
+            ]);    
         }
     }
 
-    public function updateValue(Request $request, $id)
-    {
-        return DB::table('divisoes')->where('id',$id)->update(
-            [  
-                "valor" =>$request->input('valor'), 
-            ]);
+    // public function updateValue(Request $request, $id)
+    // {
+    //     return DB::table('divisoes')->where('id',$id)->update(
+    //         [  
+    //             "valor" =>$request->input('valor'), 
+    //         ]);
         
-    }
+    // }
     
     
 }

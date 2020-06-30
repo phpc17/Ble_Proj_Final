@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('/reads', 'ReadController@store');
 
-Route::put('/divisoes/{id}', 'ReadController@updateValue');
+//Route::put('/divisoes/{id}', 'ReadController@updateValue');
 
